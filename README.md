@@ -1,6 +1,5 @@
 # ECHO
 
-- [supplyment.pdf](https://github.com/loc-l/ECHO/blob/main/supplyment.pdf) includes the proof of theorems and additional experimental results of *ECHO*.
 - [src](https://github.com/loc-l/ECHO/blob/main/src) contains the code of  *ECHO*.
 
 ## Prerequisites
