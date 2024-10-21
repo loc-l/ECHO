@@ -16,7 +16,7 @@ class SubgraphSampler(torch.utils.data.DataLoader):
 
         if batch_size > 1:
             super().__init__(range(self.partptr.numel() - 1), collate_fn=self.__collate__,
-                            batch_size=batch_size, shuffle=shuffle, num_workers=num_workers)
+                            batch_size=batch_size, shuffle=shuffle, num_workers=num_workers, pin_memory=True)
         else:
             t1 = time.time()
             data_list = list(torch.utils.data.DataLoader(range(self.partptr.numel() - 1), collate_fn=self.__collate__, 
@@ -24,7 +24,7 @@ class SubgraphSampler(torch.utils.data.DataLoader):
             t2 = time.time()
             print(f'Processing time for $s=1$: {t2-t1}s')
             super().__init__(data_list, batch_size=1,
-                             collate_fn=lambda x: x[0], shuffle=shuffle, num_workers=num_workers)
+                             collate_fn=lambda x: x[0], shuffle=shuffle, num_workers=num_workers, pin_memory=True)
 
     def __collate__(self, batch):
         if not isinstance(batch, torch.Tensor):

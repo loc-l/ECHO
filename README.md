@@ -1,6 +1,7 @@
-# ECHO
+# ECHO+
 
-- [src](https://github.com/loc-l/ECHO/blob/main/src) contains the code of  *ECHO*.
+- [src](https://github.com/loc-l/ECHO/blob/echoplus/src) contains the code of  *ECHO[+]*
+- [src/AES.py](https://github.com/loc-l/ECHO/blob/echoplus/src/AES.py) contains the implementation of *AESTrainer* and *AESTrainerPlus*.
 
 ## Prerequisites
 - torch 1.10.0
@@ -9,9 +10,10 @@
 - fast_sampler from [SALIENT](https://github.com/MITIBMxGraph/SALIENT)
 
 ## Example Usage
-[train_arxiv_sage.ipynb](https://github.com/loc-l/ECHO/blob/main/src/train_arxiv_sage.ipynb) is an example for training SAGE on ogbn-arxiv.
+[train_arxiv_sage_with_echo.ipynb](https://github.com/loc-l/ECHO/blob/echoplus/src/train_arxiv_sage_with_echo.ipynb) is an example for training SAGE on ogbn-arxiv for *ECHO*.
+[train_products_sage_with_echoplus.ipynb](https://github.com/loc-l/ECHO/blob/echoplus/src/train_products_sage_with_echoplus.ipynb) is an example for training SAGE on ogbn-products for *ECHO+*.
 
-- Use ```from config.${dataset}_${model} import *``` to include different configurations. We have put all configurations in [config](https://github.com/loc-l/ECHO/blob/main/src/config).
+- Use ```from config.${dataset}_${model} import *``` to include different configurations. We have put all configurations in [config](https://github.com/loc-l/ECHO/blob/echoplus/src/config).
 - For small datasets on SAGE, you can use ```test_loader=None```. 
 - For other cases, to avoid OOM please use:
 ```

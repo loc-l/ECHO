@@ -11,6 +11,9 @@ import torch
 def get_reddit(path):
     if os.path.exists(f'{path}/processed/echo_graph.pt'):
         data = torch.load(f'{path}/processed/echo_graph.pt')
+        data.train_mask = data.train_mask.pin_memory()
+        data.x = data.x.pin_memory()
+        data.y = data.y.pin_memory()
         return data
     
     dataset = Reddit(path, pre_transform=T.ToSparseTensor())
@@ -28,6 +31,9 @@ def get_reddit(path):
 def get_flickr(path):
     if os.path.exists(f'{path}/processed/echo_graph.pt'):
         data = torch.load(f'{path}/processed/echo_graph.pt')
+        data.train_mask = data.train_mask.pin_memory()
+        data.x = data.x.pin_memory()
+        data.y = data.y.pin_memory()
         return data
     
     dataset = Flickr(path, pre_transform=T.ToSparseTensor())
@@ -45,6 +51,9 @@ def get_flickr(path):
 def get_ogb_data(name, path):
     if os.path.exists(f'{path}/{name.replace("-", "_")}/processed/echo_graph.pt'):
         data = torch.load(f'{path}/{name.replace("-", "_")}/processed/echo_graph.pt')
+        data.train_mask = data.train_mask.pin_memory()
+        data.x = data.x.pin_memory()
+        data.y = data.y.pin_memory()
         return data
     dataset = PygNodePropPredDataset(name.replace('_', '-'), root=path, pre_transform=T.ToSparseTensor())
     data = dataset[0]

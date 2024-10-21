@@ -19,3 +19,4 @@ class ARGS:
 
     save_dir='../output'
 
+    k = 10 # echo+
